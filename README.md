@@ -28,7 +28,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
       Routing, and Middleware
 
 - [ ] Describe Middleware?
-      Middleware are functions that allow us to control the flow of the api, they are functions we write to perform a specific task in our api.
+      Middleware are functions that allow us to control the flow of the api, they are functions we write to perform a specific task in our api. Middleware is inbetween the front end request and the backend response.
 
 - [ ] Describe a Resource?
       A resource is a url endpoint with data attached to it, that is managed by the api.

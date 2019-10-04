@@ -59,6 +59,31 @@ router.post('/', (req, res) => {
     });
 });
 
+router.post('/:id/actions', (req, res) => {
+  const postBody = req.body;
+  postBody.project_id = req.params.id;
+
+  console.log(postBody);
+  dbAction
+    .insert(postBody)
+    .then(newAction => {
+      console.log(newAction);
+      //   res.status(201).json(newAction);
+      if (!postBody.description || !postBody.notes || !postBody.project_id) {
+        res.status(400).json({
+          message: 'please provide a description and notes for your action'
+        });
+      } else {
+        res.status(201).json(newAction);
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: `There was an error while saving the post to the database`
+      });
+    });
+});
+
 router.put('/:id', (req, res) => {
   const projectId = req.params.id;
   const changes = req.body;
